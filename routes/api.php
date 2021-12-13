@@ -93,7 +93,7 @@ Route::middleware(['auth:api'])->group(function () {
   //post one order by user id
   Route::post('/orders', [\App\Http\Controllers\OrderController::class, 'store']);
   //get all orders of user
-  Route::get('/orders/{id}', [\App\Http\Controllers\OrderController::class, 'index']);
+  Route::get('/orders/{id}', [\App\Http\Controllers\OrderController::class, 'getOrdersOfUser']);
 
   //get all items of order of user
   Route::get('/orderItems/{id}', [\App\Http\Controllers\OrderItemController::class, 'getAllItemsOfOrder']);

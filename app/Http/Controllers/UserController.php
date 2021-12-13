@@ -176,7 +176,9 @@ class UserController extends Controller
     //return($credentials);
     $user = Auth::attempt($credentials);
     if($user){
-      return response()->json(Auth::user());
+      $user=Auth::user();
+      $user['profile'] = Profile::where('user_id', $user->id)->first();
+      return response()->json($user);
     }
     else{
       return response()->json('unexpected error, please try later!');
